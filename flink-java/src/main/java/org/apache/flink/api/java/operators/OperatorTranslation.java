@@ -47,7 +47,7 @@ public class OperatorTranslation {
         List<GenericDataSinkBase<?>> planSinks = new ArrayList<>();
 
         for (DataSink<?> sink : sinks) {
-            planSinks.add(translate(sink));
+            planSinks.add(translate(sink)); // 这里进行算子翻译
         }
 
         Plan p = new Plan(planSinks);
@@ -95,7 +95,7 @@ public class OperatorTranslation {
             dataFlowOp = dataSource.translateToDataFlow();
             dataFlowOp.setResources(
                     dataSource.getMinResources(), dataSource.getPreferredResources());
-        } else if (dataSet instanceof SingleInputOperator) {
+        } else if (dataSet instanceof SingleInputOperator) { // 单参数子运算
             SingleInputOperator<?, ?, ?> singleInputOperator =
                     (SingleInputOperator<?, ?, ?>) dataSet;
             dataFlowOp = translateSingleInputOperator(singleInputOperator);

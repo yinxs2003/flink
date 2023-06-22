@@ -78,7 +78,7 @@ under the License.
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-runtime</artifactId>
 			<version>${project.version}</version>
-			<scope>test</scope>
+<!--			<scope>test</scope>-->
 			<type>test-jar</type>
 		</dependency>
 
@@ -92,7 +92,7 @@ under the License.
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-core</artifactId>
 			<version>${project.version}</version>
-			<scope>test</scope>
+<!--			<scope>test</scope>-->
 			<type>test-jar</type>
 		</dependency>
 
@@ -100,7 +100,7 @@ under the License.
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-clients-test-utils</artifactId>
 			<version>${project.version}</version>
-			<scope>test</scope>
+<!--			<scope>test</scope>-->
 			<classifier>job-jar</classifier>
 		</dependency>
 
@@ -108,7 +108,7 @@ under the License.
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-clients-test-utils</artifactId>
 			<version>${project.version}</version>
-			<scope>test</scope>
+<!--			<scope>test</scope>-->
 			<classifier>job-lib-jar</classifier>
 		</dependency>
 	</dependencies>

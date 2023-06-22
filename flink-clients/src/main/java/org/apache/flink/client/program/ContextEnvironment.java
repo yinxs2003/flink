@@ -68,6 +68,7 @@ public class ContextEnvironment extends ExecutionEnvironment {
         this.jobCounter = 0;
     }
 
+    // 这里是执行任务地方
     @Override
     public JobExecutionResult execute(String jobName) throws Exception {
         final JobClient jobClient = executeAsync(jobName);

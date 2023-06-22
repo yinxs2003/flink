@@ -101,7 +101,7 @@ public enum ClientUtils {
                     enforceSingleJobExecution,
                     suppressSysout);
 
-            try {
+            try { // 这里调用执行方法
                 program.invokeInteractiveModeForExecution();
             } finally {
                 ContextEnvironment.unsetAsContext();

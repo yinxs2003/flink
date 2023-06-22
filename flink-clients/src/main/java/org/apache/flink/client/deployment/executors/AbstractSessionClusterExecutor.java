@@ -67,7 +67,7 @@ public class AbstractSessionClusterExecutor<
             @Nonnull final Pipeline pipeline,
             @Nonnull final Configuration configuration,
             @Nonnull final ClassLoader userCodeClassloader)
-            throws Exception {
+            throws Exception { // 这里生成jobGraph
         final JobGraph jobGraph =
                 PipelineExecutorUtils.getJobGraph(pipeline, configuration, userCodeClassloader);
 
