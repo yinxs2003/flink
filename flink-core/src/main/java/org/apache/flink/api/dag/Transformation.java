@@ -56,7 +56,11 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
  * partitioning.
  *
  * <p>The following graph of {@code Transformations}:
- *
+ * <p>
+ * Transformation是一个创建数据流的操作。每个数据流都有一个底层转换，它是该数据流的起源。
+ * API 操作（例如 DataStream#map）会在下面创建一个Transformation树。 当要执行流程序时，该图会使用 StreamGraphGenerator 转换为 StreamGraph。
+ * 转换不一定对应于运行时的物理操作。 有些操作只是逻辑概念。 此类示例包括union, split/select数据流。
+ * </p>
  * <pre>{@code
  *   Source              Source
  *      +                   +
@@ -83,6 +87,7 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
  *                v
  *              Sink
  * }</pre>
+ *
  *
  * <p>Would result in this graph of operations at runtime:
  *

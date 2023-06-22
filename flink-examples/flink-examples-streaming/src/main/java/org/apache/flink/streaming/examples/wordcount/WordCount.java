@@ -20,6 +20,7 @@ package org.apache.flink.streaming.examples.wordcount;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringEncoder;
+import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.MemorySize;
 import org.apache.flink.connector.file.sink.FileSink;
@@ -128,7 +129,12 @@ public class WordCount {
                         // Using a keyBy allows performing aggregations and other
                         // stateful transformations over data on a per-key basis.
                         // This is similar to a GROUP BY clause in a SQL query.
-                        .keyBy(value -> value.f0)
+                        .keyBy(new KeySelector<Tuple2<String, Integer>, String>() {
+                            @Override
+                            public String getKey(Tuple2<String, Integer> value) throws Exception {
+                                return value.f0;
+                            }
+                        })
                         // For each key, we perform a simple sum of the "1" field, the count.
                         // If the input data stream is bounded, sum will output a final count for
                         // each word. If it is unbounded, it will continuously output updates
